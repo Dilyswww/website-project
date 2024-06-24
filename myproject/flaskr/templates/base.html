@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <!-- change the title displayed in the browser’s tab and window title -->
 <title>{% block title %}{% endblock %} - Flaskr</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
@@ -8,10 +8,11 @@
         <!-- links for name and log out are displayed if usr is logged -->
         {% if g.user %}
         <li><span>{{ g.user['username'] }}</span>
-        <li><a href="{{ url_for('logout') }}">Log Out</a>
+        <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
         <!-- otherwise, links for register and login are displayed -->
         {% else %}
-        <li><a href="{{ url_for('login') }}">Log In</a>
+        <li><a href="{{ url_for('auth.register') }}">Register</a>
+        <li><a href="{{ url_for('auth.login') }}">Log In</a>
         {% endif %}
     </ul>
 </nav>
